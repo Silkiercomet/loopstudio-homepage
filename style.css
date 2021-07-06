@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Josefin+Sans:ital,wght@1,300&display=swap');
+
+html{
+    box-sizing: border-box;
+}
+*,*::after,*::before{
+    box-sizing: inherit;
+}
+body{
+    padding: 0;
+    margin: 0;
+    font-family: 'Alata', sans-serif;
+    
+}
+
+/* navbar - hero */
+.navbar-hero{
+    height: 95vh;
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(images/desktop/image-hero.jpg);
+    background-position: center;
+    background-size: cover;
+}
+nav{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    height: 120px;
+    align-items: center;
+    
+}
+.desktop-menu{
+    display: flex;
+    list-style: none;
+    
+}
+.desktop-menu li {
+    padding: 0 1rem;
+    color: white;
+    cursor: pointer;
+}
+.content{
+    font-size: 1.7rem;
+    width: 40%;
+    max-width: 50rem;
+    border: 2px solid #fff;
+    padding: 0 2rem;
+    color: #fff;
+    font-weight: 300;
+    line-height: 3.75rem;
+    text-transform: uppercase;
+    font-family: 'Josefin Sans', sans-serif;
+    margin: 0;
+    transform: translate(170px,100px);
+}
+.content h1{
+    width: 15ch;
+    
+}
+/* navbar - hero */
+
+/* showcase-1 */
+
+main{
+  padding: 4.5rem 8.25rem;
+}
+
+.showcase{
+  position: relative;
+  display: flex;
+  margin-bottom: 6rem;
+}
+.showcase .right{
+  color:black;
+}
+.showcase .right h1{
+  font-size: 2.7rem;
+  width: 100%;
+  font-family: 'Josefin Sans', sans-serif;
+  text-transform: uppercase;
+  opacity: 0.9;
+  margin-bottom:0.5rem ;
+}
+.showcase .right p{
+  color: hsl(0, 0%, 55%);
+  line-height: 1.45rem;
+  font-size: 0.9rem;
+}
+
+/* showcase-1 */
+
+/* portfolio */
+
+.portfolio{
+  padding: 2.5rem 0;
+}
+.portfolio header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+}
+.portfolio header .left{
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-family: 'Josefin Sans', sans-serif;
+}
+.portfolio header .right{
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  border: 1px solid black;
+  padding: 0.2rem 2.2rem;
+}
+.portfolio header .right a{
+  text-decoration: none;
+  color: black;
+}
+.portfolio .grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(255px,1fr));
+  grid-gap: 20px;
+}
+
+/* portfolio */
+
+
+
+/* footer */
+footer{
+  background-color: black;
+  height: 180px;
+  width: 100%;
+}
+.upper{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 8.25rem;
+  padding-bottom: 0;
+}
+.social-media-icons ul {
+    list-style: none;
+    display: flex;
+  }
+  .sr-only {
+    display: none;
+  }
+  
+  .social-media-icons ul li {
+    padding: 0 0.4rem;
+  }
+  .social-media-icons ul li a {
+    color: var(--darkgrayvio);
+  }
+  .social-media-icons ul li a i {
+    transition: 300ms ease;
+    color: white;
+  }
+  
+  .fa-twitter-square:hover {
+    color: hsl(210, 82%, 64%);
+  }
+  .fa-facebook-square:hover {
+    color: hsl(210, 87%, 49%);
+  }
+  .fa-instagram:hover {
+    color: hsl(37, 89%, 58%);
+  }
+  .fa-pinterest-square:hover {
+    color: rgb(216, 76, 76);
+  }
+.social-media-icons ul {
+    list-style: none;
+    display: flex;
+    padding-left: 0;
+  }
+  .sr-only {
+    display: none;
+  }
+
+  .social-media-icons ul li {
+    padding: 0 0.4rem;
+  }
+  .down {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 0 8.25rem;
+  }
+  .down .right p{
+    color: hsl(0, 0%, 55%);
+  }
+  .desktop-footer{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin-top: 0;
+    padding-left: 0;
+  }
+  .desktop-footer li{
+    padding: 0 1rem;
+  }
+  .desktop-footer li:nth-child(1){
+    padding-left: 0;
+  }
+  /* footer */
+  
+  /* utilities */
+.dis-none{
+    display: none;
+}
+.card{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 45%;
+  right: -60px;
+  min-height: 250px;
+  width: 610px;
+  padding: 40px 5.25rem;
+  z-index: 100;
+  justify-self: flex-end;
+  background-color: white;
+}
