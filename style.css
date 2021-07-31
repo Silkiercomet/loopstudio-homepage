@@ -5,12 +5,12 @@ html{
 }
 *,*::after,*::before{
     box-sizing: inherit;
+
 }
 body{
     padding: 0;
     margin: 0;
-    font-family: 'Alata', sans-serif;
-    
+    font-family: 'Alata', sans-serif; 
 }
 
 /* navbar - hero */
@@ -37,6 +37,7 @@ nav{
     padding: 0 1rem;
     color: white;
     cursor: pointer;
+    position: relative;
 }
 .content{
     font-size: 1.7rem;
@@ -56,6 +57,24 @@ nav{
     width: 15ch;
     
 }
+
+.desktop-menu > li::after{
+  display: block;
+  content: '';
+  width: 0;
+  height: 2px;
+  background: white;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  margin-left: -25%;
+  transition: 500ms ease-in-out;
+}
+
+.desktop-menu > li:hover::after{
+  width: 50%;
+}
+
 /* navbar - hero */
 
 /* showcase-1 */
@@ -105,19 +124,26 @@ main{
   font-family: 'Josefin Sans', sans-serif;
 }
 .portfolio header .right{
-  font-size: 1.1rem;
+  font-size: 1rem;
   text-transform: uppercase;
+  letter-spacing: 3px;
   border: 1px solid black;
-  padding: 0.2rem 2.2rem;
-}
-.portfolio header .right a{
-  text-decoration: none;
+  padding: 0.5rem 2.2rem;
   color: black;
+  text-decoration: none;
+  transition: 200ms ease-in-out;
 }
+.portfolio header .right:hover {
+  color: white;
+  background-color: black;
+  cursor: pointer;
+}
+
 .portfolio .grid{
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(255px,1fr));
   grid-gap: 20px;
+  
 }
 
 /* grid */
@@ -130,10 +156,10 @@ main{
   background-repeat: no-repeat;
   margin: 0;
   background-size: cover;
-  transition: ease 3s;
+  overflow: hidden;
 }
-.imagenes:nth-child(1){
 
+.imagenes:nth-child(1){
   background-image: url(images/desktop/image-deep-earth.jpg);
   
 }
@@ -166,31 +192,50 @@ figure > * {
   bottom: 25px;
   font-family: 'Josefin Sans', sans-serif;
   text-transform: uppercase;
+  transition: all 0.6s ease-in-out;
+  z-index: 99;
 }
 .imagenes::before {
   content: '';
   position: absolute;
   top: 0;
-  bottom: 0;
   left: 0;
-  right: 0;
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
   background-blend-mode: multiply;
-  background-image: linear-gradient(to bottom, hsla(0, 0%, 0%, 0.6),hsla(0, 0%, 0%, 0));
+  background: linear-gradient(to bottom, hsla(0, 0%, 0%, 0.6),hsla(0, 0%, 0%, 0));
+  
   
 }
-
-.imagenes:hover::before{
-  background-image: linear-gradient(to top, hsla(0, 17%, 80%, 0.4),hsla(0, 15%, 72%, 0.9));
+ .imagenes::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+  background-image: linear-gradient(to top, hsla(0, 22%, 90%, 0.87),hsla(0, 15%, 72%, 0.4));
+  transition: all 0.3s ease;
   
+} 
+
+.imagenes:hover::after{
+  height: 100%;
   cursor: pointer;
 }
-.imagenes:hover figcaption, .imagenes:hover p {
+
+ /* .imagenes:hover::before{
   
+  background-image: linear-gradient(to top, hsla(0, 17%, 80%, 0.4),hsla(0, 15%, 72%, 0.9));
+  cursor: pointer;
+}  */
+.imagenes:hover figcaption, .imagenes:hover p {
   color: black;
 }
+
 
 /* grid */
 /* portfolio */
@@ -263,18 +308,38 @@ footer{
   .down .right p{
     color: hsl(0, 0%, 55%);
   }
+  
   .desktop-footer{
     display: flex;
     align-items: center;
     list-style: none;
     margin-top: 0;
     padding-left: 0;
+    
   }
   .desktop-footer li{
     padding: 0 1rem;
+    position: relative;
   }
-  .desktop-footer li:nth-child(1){
-    padding-left: 0;
+  .desktop-footer > li::after{
+    display: block;
+    content: '';
+    width: 0;
+    height: 2px;
+    background: white;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    margin-left: -25%;
+    transition: 500ms ease-in-out;
+  }
+  
+  .desktop-footer > li:hover::after{
+    width: 50%;
+  }
+
+  .desktop-footer {
+    margin-left: -1rem;
   }
   /* footer */
   
