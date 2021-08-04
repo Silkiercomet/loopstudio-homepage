@@ -19,6 +19,7 @@ body{
     background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(images/desktop/image-hero.jpg);
     background-position: center;
     background-size: cover;
+    
 }
 nav{
     display: flex;
@@ -26,7 +27,11 @@ nav{
     justify-content: space-around;
     height: 120px;
     align-items: center;
+    position: relative;
     
+}
+.logo{
+  z-index: 51;
 }
 .desktop-menu{
     display: flex;
@@ -42,7 +47,6 @@ nav{
 .content{
     font-size: 1.7rem;
     width: 40%;
-    max-width: 50rem;
     border: 2px solid #fff;
     padding: 0 2rem;
     color: #fff;
@@ -56,6 +60,9 @@ nav{
 .content h1{
     width: 15ch;
     
+}
+.hamburguer{
+  z-index: 51;
 }
 
 .desktop-menu > li::after{
@@ -74,6 +81,52 @@ nav{
 .desktop-menu > li:hover::after{
   width: 50%;
 }
+.mobile-drop{
+  display: grid;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  background-color: black;
+  width: 0;
+  height: calc(100vh + 120px);
+  color: #fff;
+  z-index: 50;
+  transition: 300ms ease-in-out;
+}
+.mobile-menu{
+  list-style: none;
+  font-size: 2rem;
+  
+}
+.mobile-menu{
+  display: block;
+  list-style: none;
+  font-size: 2rem;
+  font-family: 'Josefin Sans', sans-serif;
+  text-transform: uppercase;
+  z-index: 0;
+  transition: 300ms ease-in-out;
+  opacity: 0;
+}
+.mobile-menu li{
+  padding: 1rem 0;
+  cursor: pointer;
+  transition: 300ms ease-in-out;
+}
+.mobile-menu li:hover{
+  text-shadow: 0 0 30px #fff;
+}
+
+#m-menu:checked + .mobile-drop{
+  
+  width: 100%;
+}
+#m-menu:checked + .mobile-drop .mobile-menu{
+  display: block;
+  opacity: 1;
+}
+
+
 
 /* navbar - hero */
 
@@ -254,7 +307,11 @@ footer{
   align-items: center;
   padding: 1rem 8.25rem;
   padding-bottom: 0;
+  grid-area: up;
 }
+.social-media-icons  {
+    grid-area: bottom;
+  }
 .social-media-icons ul {
     list-style: none;
     display: flex;
@@ -304,6 +361,7 @@ footer{
     align-items: center;
     color: white;
     padding: 0 8.25rem;
+    grid-area: middle;
   }
   .down .right p{
     color: hsl(0, 0%, 55%);
@@ -362,6 +420,26 @@ footer{
   background-color: white;
 }
 
+@media (max-width:1056px){
+  .content{
+    font-size: 1.7rem;
+    width: 70%;
+    
+    border: 2px solid #fff;
+    padding: 0 2rem;
+    color: #fff;
+    font-weight: 300;
+    line-height: 3.75rem;
+    text-transform: uppercase;
+    font-family: 'Josefin Sans', sans-serif;
+    margin: 0;
+    transform: translate(170px,100px);
+}
+.content h1{
+    width: 100%;
+    
+}
+}
 @media (max-width:768px){
   /* navbar - hero */
 .navbar-hero{
@@ -373,7 +451,6 @@ footer{
 nav{
   padding: 0 1.5rem;
   justify-content: space-between;
-  
 }
 .desktop-menu{
   display: none;
@@ -526,6 +603,14 @@ main{
 
 /* footer */
 footer{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+  "up"
+  "middle"
+  "bottom";
+  
+  
   background-color: black;
   height: 100%;
   width: 100%;
@@ -538,49 +623,10 @@ footer{
   padding: 1rem ;
   padding-bottom: 0;
 }
-.social-media-icons ul {
-    list-style: none;
-    display: flex;
-  }
-  .sr-only {
-    display: none;
-  }
-  
-  .social-media-icons ul li {
-    padding: 0 0.4rem;
-  }
-  .social-media-icons ul li a {
-    color: var(--darkgrayvio);
-  }
-  .social-media-icons ul li a i {
-    transition: 300ms ease;
-    color: white;
-  }
-  
-  .fa-twitter-square:hover {
-    color: hsl(210, 82%, 64%);
-  }
-  .fa-facebook-square:hover {
-    color: hsl(210, 87%, 49%);
-  }
-  .fa-instagram:hover {
-    color: hsl(37, 89%, 58%);
-  }
-  .fa-pinterest-square:hover {
-    color: rgb(216, 76, 76);
-  }
-.social-media-icons ul {
-    list-style: none;
-    display: flex;
-    padding-left: 0;
-  }
-  .sr-only {
-    display: none;
-  }
+.upper .logo{
+  padding: 1rem 0;
+}
 
-  .social-media-icons ul li {
-    padding: 0 0.4rem;
-  }
   .down {
     display: flex;
     flex-direction: column;
@@ -597,6 +643,7 @@ footer{
   
   .desktop-footer{
     display: flex;
+    flex-direction: column;
     align-items: center;
     list-style: none;
     margin-top: 0;
@@ -604,25 +651,17 @@ footer{
     
   }
   .desktop-footer li{
-    padding: 0 1rem;
+    padding:  0.6rem 0;
     position: relative;
+    cursor: pointer;
   }
   .desktop-footer > li::after{
-    display: block;
-    content: '';
-    width: 0;
-    height: 2px;
-    background: white;
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    margin-left: -25%;
-    transition: 500ms ease-in-out;
+
+    content: none;
+
   }
   
-  .desktop-footer > li:hover::after{
-    width: 50%;
-  }
+
 
   .desktop-footer {
     margin-left: -1rem;
